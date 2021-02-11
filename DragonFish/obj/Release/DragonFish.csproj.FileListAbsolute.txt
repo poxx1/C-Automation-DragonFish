@@ -1,0 +1,9 @@
+C:\Users\julian.lastra\source\repos\DragonFish\DragonFish\bin\Release\DragonFish.exe.config
+C:\Users\julian.lastra\source\repos\DragonFish\DragonFish\bin\Release\DragonFish.exe
+C:\Users\julian.lastra\source\repos\DragonFish\DragonFish\bin\Release\DragonFish.pdb
+C:\Users\julian.lastra\source\repos\DragonFish\DragonFish\obj\Release\DragonFish.Form1.resources
+C:\Users\julian.lastra\source\repos\DragonFish\DragonFish\obj\Release\DragonFish.Properties.Resources.resources
+C:\Users\julian.lastra\source\repos\DragonFish\DragonFish\obj\Release\DragonFish.csproj.GenerateResource.cache
+C:\Users\julian.lastra\source\repos\DragonFish\DragonFish\obj\Release\DragonFish.csproj.CoreCompileInputs.cache
+C:\Users\julian.lastra\source\repos\DragonFish\DragonFish\obj\Release\DragonFish.exe
+C:\Users\julian.lastra\source\repos\DragonFish\DragonFish\obj\Release\DragonFish.pdb
