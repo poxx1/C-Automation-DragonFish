@@ -61,18 +61,11 @@ namespace DragonFish
             return currentMousePoint;
         }
 
-        
         public static void MouseEvent(MouseEventFlags value)
         {
             MousePoint position = GetCursorPosition();
 
-            mouse_event
-                ((int)value,
-                 position.X,
-                 position.Y,
-                 0,
-                 0)
-                ;
+            mouse_event((int)value, position.X, position.Y, 0, 0);
         }
 
         [StructLayout(LayoutKind.Sequential)]
@@ -91,7 +84,6 @@ namespace DragonFish
 
         private void button1_Click(object sender, EventArgs e)
         {
-
             #region Setear fechas
             try
             {
@@ -105,8 +97,8 @@ namespace DragonFish
                     Thread.Sleep(2000);
                     SendKeys.SendWait(textBox1.Text);
 
-                    Thread.Sleep(2000);
-                    SendKeys.SendWait("{TAB}");
+                    //Thread.Sleep(2000);
+                    //SendKeys.SendWait("{TAB}");
 
                     Thread.Sleep(2000);
                     SendKeys.SendWait(textBox1.Text);
@@ -121,19 +113,72 @@ namespace DragonFish
             #endregion
 
             #region Click del Mouse
-            SetCursorPos(1124, 517);
+            SetCursorPos(890, 384);
 
             Thread.Sleep(2000);
 
             MouseEvent((MouseEventFlags)0x00000002);
             MouseEvent((MouseEventFlags)0x00000004);
 
-            //MessageBox.Show("Accion finzalida", "Interaccion Dragonfish");
-
             Application.Exit();
             Close();
-
             #endregion
+        }
+
+        #region Encontrar ventana
+        [DllImport("user32.dll", EntryPoint = "FindWindow", SetLastError = true)]
+        static extern IntPtr FindWindowByCaption(IntPtr ZeroOnly,string lpWindowName);
+
+        // Define the SetWindowPos API function.
+        [DllImport("user32.dll")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        static extern bool SetWindowPos(IntPtr hWnd,IntPtr hWndInsertAfter, int X, int Y, int cx, int cy,SetWindowPosFlags uFlags);
+
+        // Define the SetWindowPosFlags enumeration.
+        [Flags()]
+        private enum SetWindowPosFlags : uint
+        {
+            SynchronousWindowPosition = 0x4000,
+            DeferErase = 0x2000,
+            DrawFrame = 0x0020,
+            FrameChanged = 0x0020,
+            HideWindow = 0x0080,
+            DoNotActivate = 0x0010,
+            DoNotCopyBits = 0x0100,
+            IgnoreMove = 0x0002,
+            DoNotChangeOwnerZOrder = 0x0200,
+            DoNotRedraw = 0x0008,
+            DoNotReposition = 0x0200,
+            DoNotSendChangingEvent = 0x0400,
+            IgnoreResize = 0x0001,
+            IgnoreZOrder = 0x0004,
+            ShowWindow = 0x0040,
+        }
+
+        public void PosicionarVentana()
+        {
+            // Get the target window's handle.
+            IntPtr target_hwnd =
+            FindWindowByCaption(IntPtr.Zero, "Listado - RETAIL - SAP (Seguimiento de stock por comprobante)");
+            
+            if (target_hwnd == IntPtr.Zero)
+            {
+                MessageBox.Show( "No se encontro la ventana");
+                return;
+            }
+            // Set the window's position.
+            int width = 927;
+            int height = 396;
+            int x = 0;
+            int y = 0;
+
+            SetWindowPos(target_hwnd, IntPtr.Zero,x, y, width, height, 0);
+        }
+        #endregion
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            PosicionarVentana();
         }
     }
 }

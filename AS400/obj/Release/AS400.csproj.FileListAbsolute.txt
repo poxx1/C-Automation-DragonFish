@@ -1,0 +1,10 @@
+C:\Users\julian.lastra\source\repos\DragonFish\AS400\bin\Release\AS400.exe.config
+C:\Users\julian.lastra\source\repos\DragonFish\AS400\bin\Release\AS400.exe
+C:\Users\julian.lastra\source\repos\DragonFish\AS400\bin\Release\AS400.pdb
+C:\Users\julian.lastra\source\repos\DragonFish\AS400\obj\Release\AS400.csprojAssemblyReference.cache
+C:\Users\julian.lastra\source\repos\DragonFish\AS400\obj\Release\AS400.Form1.resources
+C:\Users\julian.lastra\source\repos\DragonFish\AS400\obj\Release\AS400.Properties.Resources.resources
+C:\Users\julian.lastra\source\repos\DragonFish\AS400\obj\Release\AS400.csproj.GenerateResource.cache
+C:\Users\julian.lastra\source\repos\DragonFish\AS400\obj\Release\AS400.csproj.CoreCompileInputs.cache
+C:\Users\julian.lastra\source\repos\DragonFish\AS400\obj\Release\AS400.exe
+C:\Users\julian.lastra\source\repos\DragonFish\AS400\obj\Release\AS400.pdb
