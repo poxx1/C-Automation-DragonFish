@@ -202,12 +202,12 @@ namespace DragonFish
         }
         public Rect ventana()
         {
-            Process[] processes = Process.GetProcessesByName("notepad");
+            Process[] processes = Process.GetProcessesByName("DRAGONFISH_Core");
             Process lol = processes[0];
             IntPtr ptr = lol.MainWindowHandle;
             Rect ventanaActual = new Rect();
             var position = GetWindowRect(ptr, ref ventanaActual);
-            MessageBox.Show(ventanaActual.Top.ToString() + ventanaActual.Left.ToString(), "DF Automation");
+            //MessageBox.Show(ventanaActual.Top.ToString() + ventanaActual.Left.ToString(), "DF Automation");
             return ventanaActual;
         }
 
