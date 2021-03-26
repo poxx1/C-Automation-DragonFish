@@ -84,6 +84,16 @@ namespace DragonFish
 
         private void button1_Click(object sender, EventArgs e)
         {
+            #region Obtener posicion de la ventana
+            //  SetCursorPos(890, 384); >> Posicion del boton centrado
+            int x, y;
+            int botonX = 10, botonY = 10;
+            var posicionVentana = ventana();
+            y = posicionVentana.Top + botonY; //A la posicion actual le sumo el Alto
+            x = posicionVentana.Left + botonX; //A la posicion actual le sumo el Ancho
+
+            #endregion
+
             #region Setear fechas
             try
             {
@@ -113,7 +123,7 @@ namespace DragonFish
             #endregion
 
             #region Click del Mouse
-            SetCursorPos(890, 384);
+            SetCursorPos(x, y);
 
             Thread.Sleep(2000);
 
@@ -176,9 +186,31 @@ namespace DragonFish
         }
         #endregion
 
-        private void button2_Click(object sender, EventArgs e)
+        #region Tomar posicion de la ventana
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        public static extern IntPtr FindWindow(string strClassName, string strWindowName);
+
+        [DllImport("user32.dll")]
+        public static extern bool GetWindowRect(IntPtr hwnd, ref Rect rectangle);
+
+        public struct Rect
         {
-            PosicionarVentana();
+            public int Left { get; set; }
+            public int Top { get; set; }
+            public int Right { get; set; }
+            public int Bottom { get; set; }
         }
+        public Rect ventana()
+        {
+            Process[] processes = Process.GetProcessesByName("notepad");
+            Process lol = processes[0];
+            IntPtr ptr = lol.MainWindowHandle;
+            Rect ventanaActual = new Rect();
+            var position = GetWindowRect(ptr, ref ventanaActual);
+            MessageBox.Show(ventanaActual.Top.ToString() + ventanaActual.Left.ToString(), "DF Automation");
+            return ventanaActual;
+        }
+
+        #endregion
     }
 }
