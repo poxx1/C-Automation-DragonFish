@@ -84,16 +84,6 @@ namespace DragonFish
 
         private void button1_Click(object sender, EventArgs e)
         {
-            #region Obtener posicion de la ventana
-            //  SetCursorPos(890, 384); >> Posicion del boton centrado
-            int x, y;
-            int botonX = 10, botonY = 10;
-            var posicionVentana = ventana();
-            y = posicionVentana.Top + botonY; //A la posicion actual le sumo el Alto
-            x = posicionVentana.Left + botonX; //A la posicion actual le sumo el Ancho
-
-            #endregion
-
             #region Setear fechas
             try
             {
@@ -120,6 +110,21 @@ namespace DragonFish
             {
                 MessageBox.Show("Error en el programa: " + ex);
             }
+            #endregion
+
+            #region Obtener posicion de la ventana
+            //  SetCursorPos(890, 384); >> Posicion del boton centrado
+            int x=0, y=0;
+            int botonX = 890, botonY = 384;
+            var posicionVentana = ventana();
+
+            y = posicionVentana.Top + botonY; //A la posicion actual le sumo el Alto
+            x = posicionVentana.Left + botonX; //A la posicion actual le sumo el Ancho
+
+            //MessageBox.Show("Bot: "+posicionVentana.Bottom+" Top: " +posicionVentana.Top+ " Izq: " +posicionVentana.Left+" Der: "+posicionVentana.Right);
+
+            Thread.Sleep(1000);
+
             #endregion
 
             #region Click del Mouse
@@ -203,6 +208,7 @@ namespace DragonFish
         public Rect ventana()
         {
             Process[] processes = Process.GetProcessesByName("DRAGONFISH_Core");
+           
             Process lol = processes[0];
             IntPtr ptr = lol.MainWindowHandle;
             Rect ventanaActual = new Rect();

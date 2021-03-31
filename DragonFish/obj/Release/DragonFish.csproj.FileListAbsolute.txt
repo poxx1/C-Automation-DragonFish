@@ -7,4 +7,3 @@ C:\Users\julian.lastra\source\repos\DragonFish\DragonFish\obj\Release\DragonFish
 C:\Users\julian.lastra\source\repos\DragonFish\DragonFish\obj\Release\DragonFish.csproj.CoreCompileInputs.cache
 C:\Users\julian.lastra\source\repos\DragonFish\DragonFish\obj\Release\DragonFish.exe
 C:\Users\julian.lastra\source\repos\DragonFish\DragonFish\obj\Release\DragonFish.pdb
-C:\Users\julian.lastra\source\repos\DragonFish\DragonFish\obj\Release\DragonFish.csprojAssemblyReference.cache
